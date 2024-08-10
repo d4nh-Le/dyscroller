@@ -20,7 +20,7 @@ jobs:
         node-version: '18.15.0'
 
     - name: CI - Install dependencies
-      run: npm install
+      run: npm install --legacy-peer-deps
 
     - name: CI - Run ESLint
       run: npm run test
