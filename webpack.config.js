@@ -32,8 +32,5 @@ module.exports = {
         { from: 'public'}
       ],
     }),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx'],
-    }),
   ]
 };
