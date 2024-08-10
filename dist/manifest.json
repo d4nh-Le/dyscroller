@@ -1,0 +1,9 @@
+{
+    "name": "Dyscroller",
+    "version": "1.0.0",
+    "description": "A basic example extension with only required keys",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "app.html"
+    }
+  }
