@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  lint:
+  Commit_Checks:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
       run: npm install
 
     - name: CI - Run ESLint
-      run: npm run lint
+      run: npm run test
 
     - name: CI - Test compiled build
       run: npm run build
