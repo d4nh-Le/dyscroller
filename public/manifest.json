@@ -4,7 +4,8 @@
     "description": "A basic example extension with only required keys",
     "manifest_version": 3,
     "permissions": [
-        "storage"
+        "storage",
+        "history"
     ],
     "action": {
         "default_popup": "app.html"
