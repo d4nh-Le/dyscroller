@@ -5,7 +5,8 @@
     "manifest_version": 3,
     "permissions": [
         "storage",
-        "history"
+        "history",
+        "tabs"
     ],
     "action": {
         "default_popup": "app.html"
