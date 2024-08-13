@@ -10,5 +10,5 @@ const App = () => {
     );
     };
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('react-root'));
 root.render(<App />);
