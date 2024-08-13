@@ -70,7 +70,6 @@
       box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
       font-size: 16px;
       box-sizing: border-box;
-      position:relative;
     }
 
     .content-container {
@@ -139,58 +138,3 @@
     input:checked + .slider:before {
       transform: translateX(22px);
     }
-    /* Style for task list items */
-    #taskList {
-      list-style-type: none; /* Remove default bullets */
-      padding: 0;
-    }
-
-    #taskList li {
-      display: flex;
-      align-items: center;
-      margin: 5px 0;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    #taskList li input[type="checkbox"] {
-      margin-right: 10px;
-    }
-
-    #taskList li label {
-      flex: 1;
-      word-break: break-word; /* Break long words if necessary */
-    }
-
-    .icon-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      
-    }
-    
-    .icon-button i {
-      color: #333;
-    }
-    
-    .icon-button:hover i {
-      color: #2196F3;
-    }
-    
-    #taskList li {
-      display: flex;
-      align-items: center;
-      margin: 5px 0;
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      position: relative;
-    }
-    
-    #taskList li button {
-      margin-left: auto;
-    }
-    
-  
