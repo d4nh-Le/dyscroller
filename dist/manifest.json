@@ -3,11 +3,6 @@
     "version": "1.0.0",
     "description": "A basic example extension with only required keys",
     "manifest_version": 3,
-    "permissions": [
-        "storage",
-        "history",
-        "tabs"
-    ],
     "action": {
         "default_popup": "app.html"
     }
