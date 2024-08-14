@@ -1,0 +1,29 @@
+name: Dyscroller CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Commit_Checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.15.0'
+
+    - name: CI - Install dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: CI - Run ESLint
+      run: npm run test
+
+    - name: CI - Test compiled build
+      run: npm run build

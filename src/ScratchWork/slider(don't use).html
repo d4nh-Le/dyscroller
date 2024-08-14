@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider Animation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+    .screen {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 20px;
+      background-color: #fff;
+    }
+    #screen1 {
+      background-color: #e0e0e0;
+    }
+    #screen2 {
+      background-color: #c0c0c0;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1;
+    }
+    .navbar button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #555;
+      color: white;
+      cursor: pointer;
+    }
+    .navbar button:hover {
+      background-color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <button onclick="showScreen(0)">Screen 1</button>
+    <button onclick="showScreen(-100)">Screen 2</button>
+  </div>
+  <div class="container" id="slider">
+    <div id="screen1" class="screen">
+      <h1>Screen 1</h1>
+      <p>This is the first screen.</p>
+    </div>
+    <div id="screen2" class="screen">
+      <h1>Screen 2</h1>
+      <p>This is the second screen.</p>
+    </div>
+  </div>
+  <script>
+    function showScreen(offset) {
+      document.getElementById('slider').style.transform = `translateX(${offset}%)`;
+    }
+  </script>
+</body>
+</html>

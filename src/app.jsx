@@ -1,12 +1,14 @@
 import React from "react";
-import { render } from "react-dom";
+import { createRoot } from 'react-dom/client';
+
 
 const App = () => {
     return (
         <div>
         <h1>Start Dyscroller here!</h1>
-        </div>
+        </div> 
     );
     };
 
-render(<App />, document.getElementById("react-root"));
+const root = createRoot(document.getElementById('react-root'));
+root.render(<App />);
