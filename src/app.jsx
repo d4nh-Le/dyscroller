@@ -5,8 +5,8 @@ import { createRoot } from 'react-dom/client';
 const App = () => {
     return (
         <div>
-        <h1>Start Dyscroller here!</h1>
-        </div> 
+            <h1>Start Dyscroller here!</h1>
+        </div>
     );
     };
 
