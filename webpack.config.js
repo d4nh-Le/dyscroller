@@ -6,6 +6,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/app.jsx',
+    background: './src/background/background.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
