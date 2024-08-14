@@ -1,0 +1,12 @@
+/* src/components/Navbar.css */
+.navbar {
+  width: calc(100% - 20px); /* Adjusted width to account for padding */
+  height: 80px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
