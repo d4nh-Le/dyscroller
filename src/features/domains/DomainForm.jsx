@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./DomainForm.module.css";
 
-export default function DomainForm() {
+export default DomainForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,18 +28,24 @@ export default function DomainForm() {
     }
   };
 
+  const renderInput = () => (
+    <label htmlFor="domainName">
+      Domain Name:
+      <input
+        type="text"
+        name="domainName"
+        id="domainName"
+        aria-label="Domain Name"
+      />
+    </label>
+  );
+  
+  const renderSubmitBtn = () => <button type="submit">Submit</button>;
+
   return (
     <form className={styles["domain-form"]} onSubmit={handleSubmit}>
-      <label htmlFor="domainName">
-        Domain Name:
-        <input
-          type="text"
-          name="domainName"
-          id="domainName"
-          aria-label="Domain Name"
-        />
-      </label>
-      <button type="submit">Submit</button>
+      {renderInput()}
+      {renderSubmitBtn()}
     </form>
   );
 };
