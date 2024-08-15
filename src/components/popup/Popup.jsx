@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCog, faList, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-import "./popup.css";
+import styles from "./Popup.module.css";
 
 function Popup() {
   const [task, setTask] = useState("");
