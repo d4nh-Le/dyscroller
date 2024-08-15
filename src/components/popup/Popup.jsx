@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import './popup.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCog, faList, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faCog, faList, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
+import "./popup.css";
 
 function Popup() {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
   const handleAddTask = () => {
     if (task.trim()) {
       setTasks([...tasks, task]);
-      setTask(''); // Clear input field
+      setTask(""); // Clear input field
     }
   };
 
@@ -20,7 +21,7 @@ function Popup() {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleAddTask();
     }
   };
@@ -68,6 +69,6 @@ function Popup() {
       </div>
     </div>
   );
-}
+};
 
 export default Popup;
