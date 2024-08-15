@@ -1,26 +1,52 @@
 import './username.component.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Username() {
-    return (
-        <div class="form-container">
-      <div class="logo-container">
+  const [username, setUsername] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (username) {
+      chrome.storage.local.get(['preferences'], (result) => {
+        const preferences = result.preferences || {};
+        preferences.name = username;
+        chrome.storage.local.set({ preferences: preferences }, () => {
+          console.log('Username is updated in local storage:', username);
+        // USE FOR TESTING 
+        //   chrome.storage.local.get(['preferences'], (result) => {
+        //     console.log('Updated preferences:', result.preferences);
+        //   });
+        });
+      });
+    }
+  };
+
+  return (
+    <div className="form-container">
+      <div className="logo-container">
         Welcome to Dyscroller
       </div>
 
-      <form class="form">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" placeholder="Enter your username" required=""></input>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
 
-        <button class="form-submit-btn" type="submit">Get Started</button>
+        <button className="form-submit-btn" type="submit">Get Started</button>
       </form>
 
-      <p class="github-link">
-        <a href="https://github.com/d4nh-Le/dyscroller" class="github-link link" target='_blank'>Visit Dyscroller Github!</a>
+      <p className="github-link">
+        <a href="https://github.com/d4nh-Le/dyscroller" className="github-link link" target='_blank'>Visit Dyscroller Github!</a>
       </p>
     </div>
-    );
-    }
-
+  );
+}

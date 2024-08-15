@@ -8,17 +8,17 @@ import Username_Container from './containers/username.container.jsx';
 
 
 const App = () => {
-    useEffect(() => {
-        if (isChromeExtension()) {
-            onUrlChange((url) => {
-                isUrlSaved(url).then((isSaved) => {
-                    if (isUrlSaved(url)) {
-                        console.log("Watching for doomscrolling!");
-                    }
-                });
-            });
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (isChromeExtension()) {
+    //         onUrlChange((url) => {
+    //             isUrlSaved(url).then((isSaved) => {
+    //                 if (isUrlSaved(url)) {
+    //                     console.log("Watching for doomscrolling!");
+    //                 }
+    //             });
+    //         });
+    //     }
+    // }, []);
 
     return (
         <div> 
