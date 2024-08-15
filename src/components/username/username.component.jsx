@@ -12,9 +12,15 @@ export default function Username() {
         preferences.name = username;
         chrome.storage.local.set({ preferences: preferences }, () => {
           console.log('Username is updated in local storage:', username);
-        // USE FOR TESTING 
+          
         //   chrome.storage.local.get(['preferences'], (result) => {
         //     console.log('Updated preferences:', result.preferences);
+        //   });
+        //   chrome.storage.local.get(['tasks'], (result) => {
+        //     console.log('Updated preferences:', result.tasks);
+        // });
+        //   chrome.storage.local.get(['url'], (result) => {
+        //     console.log('Updated preferences:', result.url);
         //   });
         });
       });
