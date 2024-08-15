@@ -4,6 +4,8 @@ import { createRoot } from "react-dom/client";
 import {
     isChromeExtension, onUrlChange, isUrlSaved,
 } from "./utils";
+import Username_Container from './containers/username.container.jsx';
+
 
 const App = () => {
     useEffect(() => {
@@ -19,11 +21,11 @@ const App = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Start Dyscroller here!</h1>
-        </div> 
+        <div> 
+            <Username_Container />
+        </div>
     );
 };
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('react-root'));
 root.render(<App />);
