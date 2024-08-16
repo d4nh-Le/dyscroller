@@ -1,0 +1,146 @@
+.preference-form-container {
+    max-width: 400px;
+    background-color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212121;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  .preference-form-container button:active {
+    scale: 0.95;
+  }
+
+    .preference-form-container .username-container {
+    display: flex;
+    flex-direction: row;
+    }
+  
+  .preference-form-container .logo-container {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+    .preference-form-container .radio-group {
+        display: flex;
+        flex-direction: row;
+    }
+  
+  .preference-form-container .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .preference-form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 15px 0 15px 0;
+  }
+  
+  .preference-form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .preference-form-container .form-group input {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+  }
+  
+  .preference-form-container .form-group input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .preference-form-container .form-group input:focus {
+    outline: none;
+    border-color: #1778f2;
+  }
+  
+  .preference-form-container .form-submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    color: #fff;
+    background-color: #212121;
+    border: none;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+  }
+  
+  .preference-form-container .form-submit-btn:hover {
+    background-color: #313131;
+  }
+  
+  .preference-form-container .link {
+    color: #1778f2;
+    text-decoration: none;
+  }
+  
+  .preference-form-container .github-link {
+    align-self: center;
+    font-weight: 500;
+  }
+  
+  .preference-form-container .github-link .link {
+    font-weight: 400;
+  }
+  
+  .preference-form-container .link:hover {
+    text-decoration: underline;
+  }
+  
+
+
+  .preference-form-container .button-group {
+    flex-grow: 1;
+    margin: auto;
+  }
+  
+  .preference-form-container .button-group input[type="radio"] {
+    display: none;
+  }
+  
+  .preference-form-container .button-group label {
+    display: inline-block;
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: #212121;
+    color: white;
+    border-radius: 15px;
+    transition: all ease 0.2s;
+    text-align: center;
+    flex-grow: 1;
+    width: 32px;
+    flex-basis: 0;
+    font-size: 13px;
+    margin: 5px;
+    box-shadow: 0px 0px 50px -15px #000000;
+  }
+  
+  .preference-form-container .button-group input[type="radio"]:checked + label {
+    background-color: white;
+    color: #02375a;
+    border: 1px solid #2b426d;
+  }
+  
+  .preference-form-container fieldset {
+    border: 0;
+    display: flex;
+  }
+  
+  
