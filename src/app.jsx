@@ -4,7 +4,10 @@ import { createRoot } from "react-dom/client";
 import {
     isChromeExtension, onUrlChange, isUrlSaved,
 } from "./utils";
+
 import Username_Container from './containers/username.container.jsx';
+import Popup from "./components/popup";
+import UrlForm from "./components/url-form";
 
 
 const App = () => {
@@ -21,8 +24,10 @@ const App = () => {
     }, []);
 
     return (
-        <div> 
+        <div>
             <Username_Container />
+            <Popup />
+            <UrlForm />
         </div>
     );
 };
