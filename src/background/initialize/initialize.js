@@ -14,14 +14,12 @@ export function initialize() {
 }
 
 function initializeTasks() {
-    const tasks = {
-        tasks: [
-            {
-                description: "First Task",
-                isDone: false
-            }
-        ]
-    };
+    const tasks = [
+        {
+            description: "First Task",
+            isDone: false
+        }
+    ];
 
     if (chrome) {
         chrome.storage.local.set({ tasks }, () => {
