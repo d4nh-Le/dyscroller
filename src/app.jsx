@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import {
@@ -6,8 +6,8 @@ import {
 } from "./utils";
 
 import Username_Container from './containers/username.container.jsx';
-import Popup from "./components/popup";
 import UrlForm from "./components/url-form";
+import Preference_Container from './containers/preference.container.jsx'
 
 
 const App = () => {
@@ -32,8 +32,8 @@ const App = () => {
     return (
         <div>
             <Username_Container />
-            <Popup />
             <UrlForm />
+            <Preference_Container />
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { detect } from './detect/detect.js';
+import { initialize } from './initialize/initialize.js';
 
 /*
     background.js: handling all background scripts
@@ -15,4 +16,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       detect(tab.url);
     }
   }
+});
+
+/*
+    @description: This function listens for the extension installation and initializes the local storage.
+*/
+chrome.runtime.onInstalled.addListener(() => {
+  initialize();
+  console.log('Dyscroller: extension installed');
 });
