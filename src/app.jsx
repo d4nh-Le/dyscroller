@@ -14,19 +14,25 @@ const App = () => {
     useEffect(() => {
         if (isChromeExtension()) {
             onUrlChange((url) => {
-                isUrlSaved(url).then((isSaved) => {
-                    if (isUrlSaved(url)) {
-                        console.log("Watching for doomscrolling!");
+                console.log("URL has changed!");
+                if (isUrlSaved(
+                    url,
+                    (result) => {
+                        if (result) {
+                            alert("URL has been saved.");
+                        } else {
+                            alert("URL has not been saved.");
+                        }
                     }
-                });
+                ));
             });
         }
     }, []);
 
     return (
         <div>
-            <Username_Container />
-            <Popup />
+            {/* <Username_Container /> */}
+            {/* <Popup /> */}
             <UrlForm />
         </div>
     );

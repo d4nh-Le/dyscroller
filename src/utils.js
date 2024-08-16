@@ -7,12 +7,12 @@ export const saveUrl = (inputUrl) => {
       (result) => {
         const { savedUrls } = result;
         const urls = [...savedUrls];
-
-        if (!urls.includes(targetUrl)) {
+        alert(result);
+        if (targetUrl && !urls.includes(targetUrl)) {
             urls.push(targetUrl);
             chrome.storage.local.set(
               {savedUrls: urls},
-              () => console.log(targetUrl + " saved.")
+              () => alert(targetUrl + " saved.")
             );
         }
       }
@@ -60,11 +60,14 @@ export const onUrlChange = (callback) => {
 };
 
 export const isUrlSaved = (url, callback) => {
-  chrome.storage.local.get({savedUrls: []}, function(result) {
-    const { savedUrls } = result;
-    const isSaved = savedUrls.includes(url);
-    callback(isSaved);
-  });
+  chrome.storage.local.get(
+    {savedUrls: []},
+    (result) => {
+      const { savedUrls } = result;
+      const isSaved = savedUrls.includes(url);
+      callback(isSaved);
+    }
+  );
 };
 
 export const getFullUrl = (input) => {

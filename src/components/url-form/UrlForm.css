@@ -1,0 +1,19 @@
+.url-form {
+    width: 100%;
+    margin: 1em 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.url-form label {
+    margin-bottom: 2px;
+}
+
+.url-form input {
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+button {
+    border-radius: 4px;
+}

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faCog, faList, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-
-import styles from "./Popup.module.css";
 
 function Popup() {
   const [task, setTask] = useState("");
@@ -35,9 +32,6 @@ function Popup() {
           <div className="popup-icons">
             <FontAwesomeIcon icon={faUser} className="header-icon" />
             <FontAwesomeIcon icon={faCog} className="header-icon" />
-            <Link to="/newpage">
-              <FontAwesomeIcon icon={faList} className="header-icon" />
-            </Link>
           </div>
         </div>
         <div className="popup-content">

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { isChromeExtension, saveUrl } from "../../utils";
+import { isChromeExtension, saveUrl, isUrlSaved } from "../../utils";
 
-import styles from "./UrlForm.module.css";
+import "./UrlForm.css";
 
 const UrlForm = () => {
   const [url, setUrl] = useState("");
@@ -11,35 +11,36 @@ const UrlForm = () => {
     e.preventDefault();
 
     if (isChromeExtension() && url) {
-      saveUrl(url)
-        .then(() => {
-          console.log(`URL saved: ${url}`);
-          setUrl("");
-        })
-        .catch((error) => {
-          console.error(error);
+      saveUrl(url, () => {
+        isUrlSaved(url, (result) => {
+            alert(result);
         });
+      });
     }
   };
 
   const renderInput = () => (
-    <label htmlFor="url">
-      URL:
+    <>
+      <label htmlFor="url">
+        URL to Watch
+      </label>
       <input
         type="text"
         name="url"
         id="url"
         aria-label="url"
+        value={url}
+        onChange={({ target }) => setUrl(target.value)}
       />
-    </label>
+    </>
   );
   
   const renderSubmitBtn = () => (
-    <button type="submit">Submit</button>
+    <button type="submit">Add URL</button>
   );
 
   return (
-    <form className={styles["url-form"]} onSubmit={handleSubmit}>
+    <form className="url-form" onSubmit={handleSubmit}>
       {renderInput()}
       {renderSubmitBtn()}
     </form>

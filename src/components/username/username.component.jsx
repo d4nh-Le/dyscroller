@@ -10,7 +10,7 @@ export default function Username() {
 
       <form className="form">
         <div className="form-group">
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input type="text" id="username" name="username" placeholder="Enter your username" required=""></input>
         </div>
 
