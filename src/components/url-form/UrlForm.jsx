@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { isChromeExtension, saveUrl, isUrlSaved } from "../../utils";
+import { isChromeExtension, saveData, isDataSaved } from "../../utils";
 
 import "./UrlForm.css";
 
@@ -11,8 +11,8 @@ const UrlForm = () => {
     e.preventDefault();
 
     if (isChromeExtension() && url) {
-      saveUrl(url, () => {
-        isUrlSaved(url, (result) => {
+      saveData("urls", url, () => {
+        isDataSaved("urls", url, (result) => {
             alert(result);
         });
       });

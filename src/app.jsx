@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import {
-    isChromeExtension, onUrlChange, isUrlSaved,
+    isChromeExtension, onUrlChange, isDataSaved,
 } from "./utils";
 
 import Username_Container from './containers/username.container.jsx';
@@ -15,7 +15,8 @@ const App = () => {
         if (isChromeExtension()) {
             onUrlChange((url) => {
                 console.log("URL has changed!");
-                if (isUrlSaved(
+                if (isDataSaved(
+                    "urls",
                     url,
                     (result) => {
                         if (result) {
