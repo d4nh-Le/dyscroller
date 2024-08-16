@@ -5,6 +5,8 @@ import UsernameContainer from './containers/username.container.jsx';
 import PreferenceContainer from './containers/preference.container.jsx';
 import UrlForm from './containers/url.container.jsx';
 import TasksList from './containers/tasklist.container.jsx'
+import UrlForm from './components/url-form';
+import { DysfunctionalTasksList } from './components/tasks-list';
 
 
 const App = () => {
@@ -48,6 +50,7 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
+            <DysfunctionalTasksList />
         </div>
     );
 };
