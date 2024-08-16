@@ -8,11 +8,9 @@ const DysfunctionalTasksList = () => {
   const [renderRealRemoveBtn, setRenderRealRemoveBtn] = useState(false);
   const [randomEffect, setRandomEffect] = useState(null);
   const removeBtnEffects = [
-    "click-n-times",
+    // "click-n-times",
     "random-position",
     "make-it-huge",
-    "make-description-huge",
-    "show-random-background"
   ];
 
   // n-times click effect
@@ -43,7 +41,7 @@ const DysfunctionalTasksList = () => {
   const renderGagRemoveBtn = (task) => {
     return !renderRealRemoveBtn && !randomEffect && (
       <button 
-        onClick={triggerRandomEffect(task)}
+        onClick={() => triggerRandomEffect(task)}
       >
         I'm done
       </button>
@@ -53,30 +51,29 @@ const DysfunctionalTasksList = () => {
   const renderRemoveBtnWithEffects = () => {
     if (!renderRealRemoveBtn && randomEffect) {
       switch(randomEffect) {
-        case "click-n-times":
-          setNTimes(Math.floor(Math.random() * 10) + 1);
-          return (
-            <button 
-              onClick={() => setActualTimesClicked(actualTimesClicked + 1)}
-            >
-              I'm clicked {actualTimesClicked} times, click me {nTimes} times
-            </button>
-          );
         case "random-position":
           return (
-            <button 
+            <div
               style={{
-                position: "absolute",
-                top: `${Math.floor(Math.random() * 100)}%`,
-                left: `${Math.floor(Math.random() * 100)}%`,
-              }}
-              onClick={() => {
-                setRandomEffect(null);
-                setRenderRealRemoveBtn(true);
+                position: "relative",
+                top: `${Math.floor(Math.random() * 70)}%`,
+                left: `${Math.floor(Math.random() * 70)}%`,
               }}
             >
-              I'm here, click me
-            </button>
+              <button
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                }}
+                onClick={() => {
+                  setRandomEffect(null);
+                  setRenderRealRemoveBtn(true);
+                }}
+              >
+                I'm here, click me
+              </button>
+            </div>
           );
         case "make-it-huge":
           return (
@@ -104,7 +101,8 @@ const DysfunctionalTasksList = () => {
       "description",
       () => getData("tasks", (tasksResult) => setTasks(tasksResult))
     );
-    setRandomEffectSatisfied(false);
+    setRenderRealRemoveBtn(false);
+    setRandomEffect(null);
   };
 
   const renderRemoveBtn = () => {
