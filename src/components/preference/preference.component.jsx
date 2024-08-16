@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './preference.component.css'; // Import the CSS file for styling
 
+const printAllValues = () => {
+    chrome.storage.local.get(['urls', 'preferences'], (result) => {
+        if (chrome.runtime.lastError) {
+            console.error('Error retrieving values:', chrome.runtime.lastError);
+        } else {
+            console.log('URL Table:', result.urls);
+            console.log('Preferences Table:', result.preferences);
+        }
+    });
+};
+
 const loadPreferences = (setPreferences, setSelectedOption) => {
     if (chrome && chrome.storage) {
         chrome.storage.local.get(['preferences'], (result) => {
@@ -60,6 +71,7 @@ export default function Preference({ onNext }) {
                 console.error('Error updating preference:', chrome.runtime.lastError);
             } else {
                 console.log('Preferences updated successfully');
+                printAllValues();
             }
         });
     };
