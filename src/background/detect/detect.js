@@ -30,14 +30,10 @@ export function detect(url, tabId) {
 
                                         let alertCount = 0;
                                         const alertInterval = setInterval(() => {
-                                            if (alertCount < 10) {
-                                                chrome.tabs.sendMessage(tabId, { message: "google_alert" });
-                                                alertCount++;
-                                            } else {
-                                                clearInterval(alertInterval);
-                                            }
-                                            alert("Stop doomscrolling!")
-                                        }, 1);
+                                            chrome.tabs.sendMessage(tabId, { message: "google_alert" });
+                                            alertCount++;
+                                        }, 1000);
+                                        if (alertCount > 10) clearInterval(alertInterval);
 
                                     }, countdownMs);
                                 }
