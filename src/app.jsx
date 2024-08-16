@@ -30,7 +30,6 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
-            <TasksList />
         </div>
     );
 };

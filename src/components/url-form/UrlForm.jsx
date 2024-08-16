@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 
-import { isChromeExtension, saveData, isDataSaved } from "../../utils";
+import {
+  isChromeExtension, saveData, getData,
+  getFullUrl,
+} from "../../utils";
 
 import "./UrlForm.css";
 
 const UrlForm = () => {
   const [url, setUrl] = useState("");
+  const [urls, setUrls] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isChromeExtension() && url) {
-      saveData("urls", url, () => {
-        isDataSaved("urls", url, (result) => {
-            alert(result);
+      saveData("urls", getFullUrl(url), () => {
+        getData("urls", (urlsResult) => {
+          setUrls(urlsResult);
+          setUrl("");
         });
       });
     }
@@ -39,10 +44,25 @@ const UrlForm = () => {
     <button type="submit">Add URL</button>
   );
 
+  const renderUrls = () => {
+    if (urls && urls.length) {
+      return (
+        <ul>
+          {urls.map((url, index) => (
+            <li key={"url-" + index}>
+              {url}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  };
+
   return (
     <form className="url-form" onSubmit={handleSubmit}>
       {renderInput()}
       {renderSubmitBtn()}
+      {renderUrls()}
     </form>
   );
 };
