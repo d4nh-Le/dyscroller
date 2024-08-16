@@ -39,7 +39,7 @@ const TasksList = () => {
                   )
                 }
               >
-                Remove
+                I'm done
               </button>
             </li>
           ))}
