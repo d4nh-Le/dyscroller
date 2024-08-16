@@ -1,54 +1,57 @@
 
-export const saveData = (key, value) => {
+export const saveData = (key, value, callback) => {
   chrome.storage.local.get(
-    { savedData: {} },
+    { [key]: [] },
     (result) => {
-      const { savedData } = result;
-      const data = { ...savedData };
+      const newData = [...result[key]];
 
-      if (key && value) {
-        if (!data.hasOwnProperty(key)) {
-          data[key] = value;
+      if (value) {
+        if (!newData.includes(value)) {
+          newData.push(value);
           chrome.storage.local.set(
-            { savedData: data },
-            () => alert(`${key}: ${value} saved.`)
+            { [key]: newData },
+            () => {
+              if (callback !== null) {
+                callback();
+              }
+            }
           );
         } else {
-          alert(`${key}: ${value} is already saved.`);
+          alert(`Value for ${key} already saved.`);
         }
       } else {
-        alert("Invalid key or value provided.");
+        alert("Invalid value provided.");
       }
     }
   );
 };
 
 
-export const getData = (key) => {
-  return new Promise((resolve) => {
-    chrome.storage.local.get({ savedData: {} }, (result) => {
-      resolve(result[key]);
-    });
+export const getData = (key, callback) => {
+  chrome.storage.local.get({ [key]: [] }, (result) => {
+    callback(result[key]);
   });
 };
-export const removeData = (key, value) => {
-  chrome.storage.local.get(
-    { savedData: {} },
-    (result) => {
-      const { savedData } = result;
-      const data = { ...savedData };
-      const newData = {};
 
-      Object.keys(data).forEach((dataKey) => {
-        if (data[dataKey] !== value) {
-          newData[dataKey] = data[dataKey];
-        }
-      });
+export const removeData = (key, value, keyToCompare=null, callback=null) => {
+  chrome.storage.local.get(
+    { [key]: [] },
+    (result) => {
+      const data = [ ...result[key] ];
+      let newData;
+      if (!keyToCompare) {
+        newData = data.filter((item) => item !== value);
+      } else {
+        newData = data.filter((item) => item[keyToCompare] !== value);
+      }
 
       chrome.storage.local.set(
-        { savedData: newData },
+        { [key]: newData },
         () => {
-          console.log(`${key}: ${value} has been removed.`);
+          if (callback !== null) {
+            callback();
+          }
+          console.log(`Value has been removed from ${key}.`);
         }
       );
     }
@@ -70,26 +73,11 @@ export const onUrlChange = (callback) => {
 
 export const isDataSaved = (key, value, callback) => {
   chrome.storage.local.get(
-    { savedData: {} },
+    { [key]: [] },
     (result) => {
-      const { savedData } = result;
-      const data = { ...savedData };
-
-      if (key && value) {
-        if (!data.hasOwnProperty(key)) {
-          data[key] = value;
-          chrome.storage.local.set(
-            { savedData: data },
-            () => {
-              callback(true);
-            }
-          );
-        } else {
-          callback(false);
-        }
-      } else {
-        callback(false);
-      }
+      const data = [ ...result[key] ];
+      const isSaved = data.includes(value);
+      callback(isSaved);
     }
   );
 };
