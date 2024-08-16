@@ -44,14 +44,14 @@ const UrlForm = ({ onNext }) => {
   };
 
   return (
-    <div class="url-form-form-container">
-      <div class="logo-container">
+    <div className="url-form-form-container">
+      <div className="logo-container">
         Enter Doom Scroll URLs
       </div>
 
-      <form class="form" onSubmit={handleSubmit}>
-        <div class="form-group">
-          <label for="url">URLs</label>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="url">URLs</label>
           <div className="url-form-container">
             <input type="text" name="url" id="url" aria-label="url" value={url} onChange={({ target }) => setUrl(target.value)} placeholder="Enter doom scroll URLs" />
             <button className="form-submit-btn" type="submit">Add</button>
@@ -71,7 +71,7 @@ const UrlForm = ({ onNext }) => {
         </div>
       </div>
 
-      <p class="url-form-reminder">
+      <p className="url-form-reminder">
         Dyscroller will watch for these websites and remind you when you are doomscrolling and need to focus on the tasks.
       </p>
     </div>

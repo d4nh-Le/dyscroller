@@ -27,7 +27,7 @@ export default function TasksList({ navigateTo }) {
     if (tasks && tasks.length) {
       return (
         <div className='task-container'>
-          <ul class="custom-ul">
+          <ul className="custom-ul">
             {tasks.map((task, index) => (
 
               <li key={"task-" + index} className='task-item'>
