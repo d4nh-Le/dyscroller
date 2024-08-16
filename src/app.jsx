@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import UsernameContainer from './containers/username.container.jsx';
@@ -26,6 +26,9 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
+            <Username_Container />
+            <UrlForm />
+            <Preference_Container />
         </div>
     );
 };
