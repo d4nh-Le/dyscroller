@@ -8,7 +8,7 @@ import TasksList from './components/tasks-list';
 
 
 const App = () => {
-    const [currentComponentId, setCurrentComponentId] = useState('username');
+    const [currentComponentId, setCurrentComponentId] = useState('urlForm');
 
     const navigateTo = (componentId) => {
         setCurrentComponentId(componentId);
@@ -31,7 +31,6 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
-            <TasksList />
         </div>
     );
 };

@@ -1,19 +1,142 @@
-.url-form {
-    width: 100%;
-    margin: 1em 0.5em;
+.url-form-form-container {
+    width: 250px;
+    background-color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212121;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
-.url-form label {
-    margin-bottom: 2px;
+.url-form-form-container .url-form-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 15px 0;
 }
 
-.url-form input {
-    border-radius: 4px;
-    margin-bottom: 1em;
+.url-form-form-container button:active {
+    scale: 0.95;
 }
 
-button {
-    border-radius: 4px;
+.url-form-form-container .logo-container {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.url-form-form-container .form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -25px;
+}
+
+.url-form-form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.url-form-form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.url-form-form-container .form-group input {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+}
+
+.url-form-form-container .form-group input::placeholder {
+    opacity: 0.5;
+}
+
+.url-form-form-container .form-group input:focus {
+    outline: none;
+    border-color: #1778f2;
+}
+
+.url-form-form-container .url-form-container .form-submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    color: #fff;
+    background-color: #212121;
+    border: none;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+.url-form-form-container .form-submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    color: #fff;
+    background-color: #212121;
+    border: none;
+    width: 250px;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+.url-form-form-container .form-submit-btn:hover {
+    background-color: #313131;
+}
+
+.url-form-form-container .link {
+    color: #1778f2;
+    text-decoration: none;
+}
+
+.url-form-form-container .github-link {
+    align-self: center;
+    font-weight: 500;
+}
+
+.url-form-form-container .github-link .link {
+    font-weight: 400;
+}
+
+.url-form-form-container .link:hover {
+    text-decoration: underline;
+}
+
+.url-form-reminder {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+
+.url-form-form-container .saved-urls-container {
+    max-height: 70px;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: -20px;
+}
+
+.url-form-form-container .saved-urls-scroll {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.url-form-form-container .saved {
+    font-weight: bold;
+    margin-bottom: -15px;
 }
