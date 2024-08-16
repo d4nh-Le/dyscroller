@@ -1,8 +1,9 @@
+import './TasksList.css';
 import React, { useState, useEffect } from "react";
 
 import { saveData, getData, removeData } from "../../utils";
 
-const TasksList = () => {
+export default function TasksList({ navigateTo }) {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
@@ -25,49 +26,45 @@ const TasksList = () => {
   const renderList = () => {
     if (tasks && tasks.length) {
       return (
-        <ul>
-          {tasks.map((task, index) => (
-            <li key={"task-" + index}>
-              {task.description}
-              <button 
-                onClick={
-                  () => removeData(
-                    "tasks",
-                    task.description,
-                    "description",
-                    () => getData("tasks", (tasksResult) => setTasks(tasksResult))
-                  )
-                }
-              >
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className='task-container'>
+          <ul class="custom-ul">
+            {tasks.map((task, index) => (
+
+              <li key={"task-" + index} className='task-item'>
+                {task.description}
+                <button className='remove-btn' onClick={() => removeData("tasks", task.description, "description", () => getData("tasks", (tasksResult) => setTasks(tasksResult)))}>
+                  Complete
+                </button>
+              </li>
+
+            ))}
+          </ul>
+        </div>
       );
     }
   };
 
-  const renderAddTaskBtn = () => (
-    <button onClick={handleAddTask}>Add Task</button>
-  );
-
-  const renderAddTaskInput = () => (
-    <input
-      type="text"
-      value={task}
-      onChange={({ target }) => setTask(target.value)}
-      placeholder="Enter a new task"
-    />
-  );
-
   return (
-    <div>
-      {renderAddTaskInput()}
-      {renderAddTaskBtn()}
+    <div className="tasklist-form-container">
+      <div className="navigation-btns">
+        <button className="form-submit-btn" type="button" onClick={() => navigateTo('urlForm')}>URLs</button>
+        <button className="form-submit-btn" type="button" onClick={() => navigateTo('preference')}>Preference</button>
+
+      </div>
+      <div className="logo-container">
+        Your Tasks
+      </div>
+
+      <form className="form">
+        <div className="form-group">
+          <label htmlFor="username">Add tasks:</label>
+          <div className="username-container">
+            <input type="text" value={task} onChange={({ target }) => setTask(target.value)} placeholder="Enter a new task" />
+            <button className="form-submit-btn" type="button" onClick={handleAddTask}>Add task</button>
+          </div>
+        </div>
+      </form>
       {renderList()}
     </div>
   );
 };
-
-export default TasksList;
