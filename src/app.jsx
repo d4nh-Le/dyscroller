@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import UsernameContainer from './containers/username.container.jsx';
-import PreferenceContainer from './containers/preference.container.jsx'
+import PreferenceContainer from './containers/preference.container.jsx';
+import UrlForm from './components/url-form/';
 
 
 const App = () => {
@@ -26,9 +27,7 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
-            <Username_Container />
             <UrlForm />
-            <Preference_Container />
         </div>
     );
 };
