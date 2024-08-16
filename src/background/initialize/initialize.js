@@ -33,10 +33,10 @@ function initializeTasks() {
 }
 
 function initializeURL() {
-    const url = ["https://www.tiktok.com/"];
+    const urls = ["https://www.tiktok.com/"];
 
     if (chrome) {
-        chrome.storage.local.set({ url }, () => {
+        chrome.storage.local.set({ urls }, () => {
             console.log("Initialized URL");
         });
     } else {
