@@ -27,7 +27,7 @@ function initializeTasks() {
         });
     } else {
         console.error("Chrome API not available");
-    }   
+    }
 }
 
 function initializeURL() {
