@@ -1,16 +1,20 @@
 
-export const saveData = (key, value) => {
+export const saveData = (key, value, callback) => {
   chrome.storage.local.get(
     { [key]: [] },
     (result) => {
       const newData = [...result[key]];
 
       if (value) {
-        if (!newData.includes(key)) {
+        if (!newData.includes(value)) {
           newData.push(value);
           chrome.storage.local.set(
             { [key]: newData },
-            () => alert(`Value for ${key} saved.`)
+            () => {
+              if (callback !== null) {
+                callback();
+              }
+            }
           );
         } else {
           alert(`Value for ${key} already saved.`);
@@ -23,23 +27,30 @@ export const saveData = (key, value) => {
 };
 
 
-export const getData = (key) => {
-  return new Promise((resolve) => {
-    chrome.storage.local.get({ [key]: [] }, (result) => {
-      resolve(result[key]);
-    });
+export const getData = (key, callback) => {
+  chrome.storage.local.get({ [key]: [] }, (result) => {
+    callback(result[key]);
   });
 };
-export const removeData = (key, value) => {
+
+export const removeData = (key, value, keyToCompare=null, callback=null) => {
   chrome.storage.local.get(
     { [key]: [] },
     (result) => {
       const data = [ ...result[key] ];
-      const newData = data.filter((item) => item !== value);
+      let newData;
+      if (!keyToCompare) {
+        newData = data.filter((item) => item !== value);
+      } else {
+        newData = data.filter((item) => item[keyToCompare] !== value);
+      }
 
       chrome.storage.local.set(
         { [key]: newData },
         () => {
+          if (callback !== null) {
+            callback();
+          }
           console.log(`Value has been removed from ${key}.`);
         }
       );

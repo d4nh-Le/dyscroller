@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 
 import UsernameContainer from './containers/username.container.jsx';
 import PreferenceContainer from './containers/preference.container.jsx';
-import UrlForm from './components/url-form/';
+import UrlForm from './components/url-form';
+import TasksList from './components/tasks-list';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
+            <TasksList />
         </div>
     );
 };
