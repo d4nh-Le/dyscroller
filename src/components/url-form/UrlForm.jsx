@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import { isChromeExtension, saveData, isDataSaved } from "../../utils";
+import {
+  isChromeExtension, saveData, getData,
+  getFullUrl,
+} from "../../utils";
 
 import "./UrlForm.css";
 
