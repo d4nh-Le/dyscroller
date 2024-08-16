@@ -1,50 +1,59 @@
 
-export const saveUrl = (inputUrl) => {
-  const targetUrl = getFullUrl(inputUrl);
-  if (targetUrl) {
-    chrome.storage.local.get(
-      {savedUrls: []},
-      (result) => {
-        const { savedUrls } = result;
-        const urls = [...savedUrls];
+export const saveData = (key, value) => {
+  chrome.storage.local.get(
+    { savedData: {} },
+    (result) => {
+      const { savedData } = result;
+      const data = { ...savedData };
 
-        if (!urls.includes(targetUrl)) {
-            urls.push(targetUrl);
-            chrome.storage.local.set(
-              {savedUrls: urls},
-              () => console.log(targetUrl + " saved.")
-            );
+      if (key && value) {
+        if (!data.hasOwnProperty(key)) {
+          data[key] = value;
+          chrome.storage.local.set(
+            { savedData: data },
+            () => alert(`${key}: ${value} saved.`)
+          );
+        } else {
+          alert(`${key}: ${value} is already saved.`);
         }
+      } else {
+        alert("Invalid key or value provided.");
       }
-    );
-  }
-}
+    }
+  );
+};
 
 
-export const getUrls = () => {
+export const getData = (key) => {
   return new Promise((resolve) => {
-    chrome.storage.local.get("urls", (result) => {
-      resolve(result.urls || []);
+    chrome.storage.local.get({ savedData: {} }, (result) => {
+      resolve(result[key]);
     });
   });
 };
-
-export const removeUrl = (targetUrl) => {
+export const removeData = (key, value) => {
   chrome.storage.local.get(
-    {savedUrls: []},
+    { savedData: {} },
     (result) => {
-      const { savedUrls } = result;
-      const urls = [...savedUrls];
-      const finalUrls = urls.filter((savedUrl) => savedUrl !== targetUrl);
+      const { savedData } = result;
+      const data = { ...savedData };
+      const newData = {};
+
+      Object.keys(data).forEach((dataKey) => {
+        if (data[dataKey] !== value) {
+          newData[dataKey] = data[dataKey];
+        }
+      });
 
       chrome.storage.local.set(
-        {savedUrls: finalUrls},
+        { savedData: newData },
         () => {
-          console.log(url + " has been removed.");
+          console.log(`${key}: ${value} has been removed.`);
         }
       );
-  });
-}
+    }
+  );
+};
 
 export const isChromeExtension = () => {
   return typeof chrome !== "undefined";
@@ -59,12 +68,30 @@ export const onUrlChange = (callback) => {
   });
 };
 
-export const isUrlSaved = (url, callback) => {
-  chrome.storage.local.get({savedUrls: []}, function(result) {
-    const { savedUrls } = result;
-    const isSaved = savedUrls.includes(url);
-    callback(isSaved);
-  });
+export const isDataSaved = (key, value, callback) => {
+  chrome.storage.local.get(
+    { savedData: {} },
+    (result) => {
+      const { savedData } = result;
+      const data = { ...savedData };
+
+      if (key && value) {
+        if (!data.hasOwnProperty(key)) {
+          data[key] = value;
+          chrome.storage.local.set(
+            { savedData: data },
+            () => {
+              callback(true);
+            }
+          );
+        } else {
+          callback(false);
+        }
+      } else {
+        callback(false);
+      }
+    }
+  );
 };
 
 export const getFullUrl = (input) => {
