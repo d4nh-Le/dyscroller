@@ -10,6 +10,7 @@ export default function Username({ onNext }) {
       chrome.storage.local.get(['preferences'], (result) => {
         const preferences = result.preferences || {};
         preferences.name = username;
+        preferences.firstTime = false;
         chrome.storage.local.set({ preferences: preferences }, () => {
           console.log('Username is updated in local storage:', username);
           if (typeof onNext === 'function') {
@@ -17,15 +18,15 @@ export default function Username({ onNext }) {
         } else {
             console.error('onNext is not a function');
         }
-        //   chrome.storage.local.get(['preferences'], (result) => {
-        //     console.log('Updated preferences:', result.preferences);
-        //   });
-        //   chrome.storage.local.get(['tasks'], (result) => {
-        //     console.log('Updated preferences:', result.tasks);
-        // });
-        //   chrome.storage.local.get(['url'], (result) => {
-        //     console.log('Updated preferences:', result.url);
-        //   });
+          chrome.storage.local.get(['preferences'], (result) => {
+            console.log('Updated preferences:', result.preferences);
+          });
+          chrome.storage.local.get(['tasks'], (result) => {
+            console.log('Updated preferences:', result.tasks);
+        });
+          chrome.storage.local.get(['url'], (result) => {
+            console.log('Updated preferences:', result.url);
+          });
         });
       });
     }

@@ -47,7 +47,8 @@ function initializeURL() {
 function initializePreferences() {
     const preferences = {
         name: "Default",
-        doomscrollCountdown: 5
+        doomscrollCountdown: 5,
+        firstTime: true
     };
 
     if (chrome) {

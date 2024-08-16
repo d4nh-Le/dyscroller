@@ -14,22 +14,33 @@
   .preference-form-container button:active {
     scale: 0.95;
   }
+
+    .preference-form-container .username-container {
+    display: flex;
+    flex-direction: row;
+    }
   
   .preference-form-container .logo-container {
     text-align: center;
     font-weight: 600;
     font-size: 18px;
   }
+
+    .preference-form-container .radio-group {
+        display: flex;
+        flex-direction: row;
+    }
   
   .preference-form-container .form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   
   .preference-form-container .form-group {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin: 5px 0 5px 0;
   }
   
   .preference-form-container .form-group label {
@@ -65,7 +76,7 @@
     padding: 12px 16px;
     font-size: inherit;
     gap: 8px;
-    margin: 12px 0;
+    margin: 0 0 0 5px;
     cursor: pointer;
     border-radius: 6px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);

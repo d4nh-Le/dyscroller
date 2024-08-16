@@ -6,7 +6,7 @@ import PreferenceContainer from './containers/preference.container.jsx'
 
 
 const App = () => {
-    const [currentComponentId, setCurrentComponentId] = useState('username');
+    const [currentComponentId, setCurrentComponentId] = useState('preference');
 
     const navigateTo = (componentId) => {
         setCurrentComponentId(componentId);
