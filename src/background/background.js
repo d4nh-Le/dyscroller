@@ -9,7 +9,7 @@ import { initialize } from './initialize/initialize.js';
     @description: This function listens for tab updates and check if the website is a doomscrolling website.
 */
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete') {
+  if (changeInfo.status === 'complete' && tab.active) {
     if (chrome.runtime.lastError) {
       console.error('Error:', chrome.runtime.lastError.message);
     } else {
@@ -17,6 +17,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
   }
 });
+
 
 /*
     @description: This function listens for tab activation and executes the content script.

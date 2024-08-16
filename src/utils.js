@@ -101,3 +101,15 @@ export const getFullUrl = (input) => {
       return null;
   }
 };
+
+export const extractDomain = (url) => {
+  // Create a new URL object
+  let domain = new URL(getFullUrl(url)).hostname;
+
+  // Remove 'www.' if present
+  if (domain.startsWith('www.')) {
+      domain = domain.substring(4);
+  }
+
+  return domain;
+}

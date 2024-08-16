@@ -49,7 +49,6 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
-            <DysfunctionalTasksList />
         </div>
     );
 };
