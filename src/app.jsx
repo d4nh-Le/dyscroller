@@ -7,7 +7,7 @@ import UrlForm from './components/url-form/';
 
 
 const App = () => {
-    const [currentComponentId, setCurrentComponentId] = useState('username');
+    const [currentComponentId, setCurrentComponentId] = useState('preference');
 
     const navigateTo = (componentId) => {
         setCurrentComponentId(componentId);
@@ -19,6 +19,8 @@ const App = () => {
                 return <UsernameContainer onNext={() => navigateTo('preference')} />;
             case 'preference':
                 return <PreferenceContainer onNext={() => navigateTo('username')} />;
+            case 'urlForm':
+                return <UrlForm />;
             default:
                 return <div>Component not found</div>;
         }
@@ -27,7 +29,6 @@ const App = () => {
     return (
         <div>
             {renderComponent()}
-            <UrlForm />
         </div>
     );
 };
