@@ -27,7 +27,7 @@ export default function Username() {
   };
 
   return (
-    <div className="form-container">
+    <div className="username-form-container">
       <div className="logo-container">
         Welcome to Dyscroller
       </div>

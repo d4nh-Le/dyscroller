@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export default function Preference() {
     return (
-        <div className="form-container">
+        <div className="preference-form-container">
           <div className="logo-container">
             Preferences
           </div>
