@@ -1,7 +1,7 @@
 import './preference.component.css';
 import React, { useState } from 'react';
 
-export default function Preference() {
+export default function Preference({onNext}) {
     return (
         <div className="preference-form-container">
           <div className="logo-container">
@@ -14,7 +14,7 @@ export default function Preference() {
               <input type="text" id="username" name="username" placeholder="Enter your username" required/>
             </div>
     
-            <button className="form-submit-btn" type="submit">Get Started</button>
+            <button className="form-submit-btn" type="submit" onClick={onNext}>Save</button>
           </form>
     
           <p className="github-link">

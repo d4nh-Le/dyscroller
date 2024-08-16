@@ -1,16 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-import Username_Container from './containers/username.container.jsx';
-import Preference_Container from './containers/preference.container.jsx'
+import UsernameContainer from './containers/username.container.jsx';
+import PreferenceContainer from './containers/preference.container.jsx'
 
 
 const App = () => {
+    const [currentComponentId, setCurrentComponentId] = useState('username');
+
+    const navigateTo = (componentId) => {
+        setCurrentComponentId(componentId);
+    };
+
+    const renderComponent = () => {
+        switch (currentComponentId) {
+            case 'username':
+                return <UsernameContainer onNext={() => navigateTo('preference')} />;
+            case 'preference':
+                return <PreferenceContainer onNext={() => navigateTo('username')} />;
+            default:
+                return <div>Component not found</div>;
+        }
+    };
 
     return (
         <div>
-            <Username_Container />
-            <Preference_Container />
+            {renderComponent()}
         </div>
     );
 };

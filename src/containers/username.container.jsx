@@ -1,6 +1,6 @@
 import Username from "../components/username";
 import React from "react";
 
-export default function UsernameContainer() {
-    return <Username />;
+export default function UsernameContainer({ onNext }) {
+    return <Username onNext={onNext}/>;
     }

@@ -1,7 +1,7 @@
 import './username.component.css';
 import React, { useState } from 'react';
 
-export default function Username() {
+export default function Username({ onNext }) {
   const [username, setUsername] = useState('');
 
   const handleSubmit = (event) => {
@@ -12,6 +12,11 @@ export default function Username() {
         preferences.name = username;
         chrome.storage.local.set({ preferences: preferences }, () => {
           console.log('Username is updated in local storage:', username);
+          if (typeof onNext === 'function') {
+            onNext();
+        } else {
+            console.error('onNext is not a function');
+        }
         //   chrome.storage.local.get(['preferences'], (result) => {
         //     console.log('Updated preferences:', result.preferences);
         //   });
