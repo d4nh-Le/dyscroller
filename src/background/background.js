@@ -13,9 +13,23 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     if (chrome.runtime.lastError) {
       console.error('Error:', chrome.runtime.lastError.message);
     } else {
-      detect(tab.url);
+      detect(tab.url, tabId);
     }
   }
+});
+
+/*
+    @description: This function listens for tab activation and executes the content script.
+*/
+chrome.tabs.onActivated.addListener(activeInfo => {
+  chrome.tabs.get(activeInfo.tabId, tab => {
+      if (tab.url && tab.url.startsWith('http')) {
+          chrome.scripting.executeScript({
+              target: { tabId: activeInfo.tabId },
+              files: ['contentScript.js']
+          });
+      }
+  });
 });
 
 /*
@@ -23,5 +37,4 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 */
 chrome.runtime.onInstalled.addListener(() => {
   initialize();
-  console.log('Dyscroller: extension installed');
 });
