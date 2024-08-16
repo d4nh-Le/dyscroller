@@ -31,8 +31,8 @@ const App = () => {
 
     return (
         <div>
-            {/* <Username_Container /> */}
-            {/* <Popup /> */}
+            <Username_Container />
+            <Popup />
             <UrlForm />
         </div>
     );
