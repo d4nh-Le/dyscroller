@@ -15,15 +15,15 @@ chrome.runtime.onInstalled.addListener(() => {
 /*
     @description: This function listens for tab updates and check if the website is a doomscrolling website.
 */
-// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-//   if (changeInfo.status === 'complete' && tab.active) {
-//     if (chrome.runtime.lastError) {
-//       console.error('Error:', chrome.runtime.lastError.message);
-//     } else {
-//       detect(tab.url, tabId);
-//     }
-//   }
-// });
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.status === 'complete' && tab.active) {
+    if (chrome.runtime.lastError) {
+      console.error('Error:', chrome.runtime.lastError.message);
+    } else {
+      detect(tab.url, tabId);
+    }
+  }
+});
 
 
 /*
