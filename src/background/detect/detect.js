@@ -16,8 +16,6 @@ export function detect(url, tabId) {
                     if (urls.filter(((url) => (
                         extractDomain(url) === extractDomain(doomscroll_url)
                     )))) {
-                        console.log("Dyscroller: doomscroll detected.");
-
                         if (chrome && chrome.storage) {
                             chrome.storage.local.get(['preferences'], (result) => {
                                 if (result.preferences) {
@@ -26,14 +24,14 @@ export function detect(url, tabId) {
                                     const countdownMs = 3000;
 
                                     setTimeout(() => {
-                                        chrome.tabs.sendMessage(tabId, { message: "stop" });
+                                        // chrome.tabs.sendMessage(tabId, { message: "stop" });
 
-                                        let alertCount = 0;
-                                        const alertInterval = setInterval(() => {
-                                            chrome.tabs.sendMessage(tabId, { message: "google_alert" });
-                                            alertCount++;
-                                        }, 1000);
-                                        if (alertCount > 10) clearInterval(alertInterval);
+                                        // let alertCount = 0;
+                                        // const alertInterval = setInterval(() => {
+                                        //     chrome.tabs.sendMessage(tabId, { message: "google_alert" });
+                                        //     alertCount++;
+                                        // }, 1000);
+                                        // if (alertCount > 10) clearInterval(alertInterval);
 
                                     }, countdownMs);
                                 }

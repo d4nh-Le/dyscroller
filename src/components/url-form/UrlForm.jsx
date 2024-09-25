@@ -1,11 +1,7 @@
+import "./UrlForm.css";
 import React, { useState, useEffect } from "react";
 
-import {
-  isChromeExtension, saveData, getData,
-  getFullUrl,
-} from "../../utils";
-
-import "./UrlForm.css";
+import {isChromeExtension, saveData, isDataSaved} from "../../utils";
 
 const UrlForm = ({ onNext }) => {
   const [url, setUrl] = useState("");

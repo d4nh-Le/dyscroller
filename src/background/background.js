@@ -6,17 +6,24 @@ import { initialize } from './initialize/initialize.js';
 */
 
 /*
+    @description: This function listens for the extension installation and initializes the local storage.
+*/
+chrome.runtime.onInstalled.addListener(() => {
+  initialize();
+});
+
+/*
     @description: This function listens for tab updates and check if the website is a doomscrolling website.
 */
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && tab.active) {
-    if (chrome.runtime.lastError) {
-      console.error('Error:', chrome.runtime.lastError.message);
-    } else {
-      detect(tab.url, tabId);
-    }
-  }
-});
+// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+//   if (changeInfo.status === 'complete' && tab.active) {
+//     if (chrome.runtime.lastError) {
+//       console.error('Error:', chrome.runtime.lastError.message);
+//     } else {
+//       detect(tab.url, tabId);
+//     }
+//   }
+// });
 
 
 /*
@@ -27,15 +34,9 @@ chrome.tabs.onActivated.addListener(activeInfo => {
       if (tab.url && tab.url.startsWith('http')) {
           chrome.scripting.executeScript({
               target: { tabId: activeInfo.tabId },
-              files: ['contentScript.js']
+              files: ['content.js']
           });
       }
   });
 });
 
-/*
-    @description: This function listens for the extension installation and initializes the local storage.
-*/
-chrome.runtime.onInstalled.addListener(() => {
-  initialize();
-});
