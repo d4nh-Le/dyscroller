@@ -25,17 +25,16 @@ export function detect(url, tabId) {
                                     console.log("Countdown starts for: " + countdown + " minutes");
                                     const countdownMs = countdown * 60 * 1000;
 
-                                    // setTimeout(() => {
-                                    //     chrome.tabs.sendMessage(tabId, { message: "stop" });
-
-                                    //     let alertCount = 0;
-                                    //     const alertInterval = setInterval(() => {
-                                    //         chrome.tabs.sendMessage(tabId, { message: "google_alert" });
-                                    //         alertCount++;
-                                    //     }, 1000);
-                                    //     if (alertCount > 10) clearInterval(alertInterval);
-
-                                    // }, countdownMs);
+                                    setTimeout(() => {
+                                        let alertCount = 0;
+                                        const alertInterval = setInterval(() => {
+                                            chrome.tabs.sendMessage(tabId, { message: "google_alert" });
+                                            alertCount++;
+                                            if (alertCount >= 10) {
+                                                clearInterval(alertInterval);
+                                            }
+                                        }, 1000);
+                                    }, countdownMs);
                                 }
                             });
                         }
