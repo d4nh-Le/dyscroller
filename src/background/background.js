@@ -25,18 +25,3 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
-
-/*
-    @description: This function listens for tab activation and executes the content script.
-*/
-chrome.tabs.onActivated.addListener(activeInfo => {
-  chrome.tabs.get(activeInfo.tabId, tab => {
-      if (tab.url && tab.url.startsWith('http')) {
-          chrome.scripting.executeScript({
-              target: { tabId: activeInfo.tabId },
-              files: ['content.js']
-          });
-      }
-  });
-});
-

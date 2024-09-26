@@ -36,7 +36,32 @@ const UrlForm = ({ onNext }) => {
           setSavedUrls(result.urls || []);
         }
       });
-    }, 1000);
+    }, 500);
+  };
+
+  const removeData = (key, value, keyToCompare = null, callback = null) => {
+    chrome.storage.local.get({ [key]: [] }, (result) => {
+      const data = [...result[key]];
+      let newData;
+      if (!keyToCompare) {
+        newData = data.filter((item) => item !== value);
+      } else {
+        newData = data.filter((item) => item[keyToCompare] !== value);
+      }
+
+      chrome.storage.local.set({ [key]: newData }, () => {
+        if (callback !== null) {
+          callback();
+        }
+        console.log(`Value has been removed from ${key}.`);
+      });
+    });
+  };
+
+  const getData = (key, callback) => {
+    chrome.storage.local.get({ [key]: [] }, (result) => {
+      callback(result[key]);
+    });
   };
 
   return (
@@ -61,8 +86,12 @@ const UrlForm = ({ onNext }) => {
         <div className="saved-urls-scroll">
           <ul>
             {savedUrls.map((savedUrl, index) => (
-              <li key={index}>{savedUrl}</li>
-            ))}
+              <div key={index}>
+                <li>{savedUrl}</li>
+                <button className='remove-btn' onClick={() => removeData("urls", savedUrl, null, () => getData("urls", (urlsResult) => setSavedUrls(urlsResult)))}>X</button>
+              </div>
+            ))
+            }
           </ul>
         </div>
       </div>
