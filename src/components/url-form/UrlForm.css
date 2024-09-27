@@ -127,13 +127,15 @@
     max-height: 70px;
     overflow: auto;
     border: 1px solid #ccc;
-    padding: 10px;
     margin-bottom: -20px;
 }
 
 .url-form-form-container .saved-urls-scroll {
     max-height: 100%;
     overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    padding-left: -10px;
 }
 
 .url-form-form-container .saved {
@@ -142,18 +144,22 @@
 }
 
 .url-form-form-container .remove-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: inherit;
-    color: #fff;
-    background-color: #212121;
     border: none;
-    width: 75px;
-    padding: 3px;
-    font-size: inherit;
-    gap: 8px;
-    cursor: pointer;
-    border-radius: 6px;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+    background-color: transparent;
+    margin-top: 1px;
+}
+
+.url-form-form-container .saved-urls-list {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 5px -30px;
+}
+
+.url-form-form-container .saved-urls-list li {
+    background-color: #ebebeb;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding-left: 13px;
+    border-radius: 5px;
 }

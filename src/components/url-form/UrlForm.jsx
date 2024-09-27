@@ -86,9 +86,11 @@ const UrlForm = ({ onNext }) => {
         <div className="saved-urls-scroll">
           <ul>
             {savedUrls.map((savedUrl, index) => (
-              <div key={index}>
-                <li>{savedUrl}</li>
-                <button className='remove-btn' onClick={() => removeData("urls", savedUrl, null, () => getData("urls", (urlsResult) => setSavedUrls(urlsResult)))}>X</button>
+              <div key={index} className="saved-urls-list">
+                <li>{savedUrl}
+                <button className='remove-btn' onClick={() => removeData("urls", savedUrl, null, () => getData("urls", (urlsResult) => setSavedUrls(urlsResult)))}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#3b3b3b" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
+                </button></li>
               </div>
             ))
             }
