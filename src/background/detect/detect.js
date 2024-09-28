@@ -1,4 +1,4 @@
-import { extractDomain } from "../../utils";
+import { extractURL } from "../../utils";
 
 /*
     @description: This function checks if the website is a doomscrolling website or not.
@@ -14,7 +14,9 @@ export function detect(url, tabId) {
             }
             chrome.storage.local.get("urls", (result) => {
                     const urls = result.urls || [];
-                    const doomscroll_url = url;
+                    const extracted_url = extractURL(url);
+                    
+                    const doomscroll_url = extracted_url;
 
                     if (urls.includes(doomscroll_url)) {
                         if (chrome && chrome.storage) {

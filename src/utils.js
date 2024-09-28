@@ -58,6 +58,17 @@ export const removeData = (key, value, keyToCompare=null, callback=null) => {
   );
 };
 
+export const extractURL = (url) => {
+  let domain;
+  if (url.indexOf("://") > -1) {
+    domain = url.split('/')[2];
+  } else {
+    domain = url.split('/')[0];
+  }
+  domain = domain.split(':')[0];
+  return domain;
+};
+
 export const isChromeExtension = () => {
   return typeof chrome !== "undefined";
 };

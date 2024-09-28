@@ -1,7 +1,7 @@
 import "./UrlForm.css";
 import React, { useState, useEffect } from "react";
 
-import {isChromeExtension, saveData, isDataSaved} from "../../utils";
+import {isChromeExtension, saveData, isDataSaved, extractURL} from "../../utils";
 
 const UrlForm = ({ onNext }) => {
   const [url, setUrl] = useState("");
@@ -17,12 +17,14 @@ const UrlForm = ({ onNext }) => {
     });
   }, []);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isChromeExtension() && url) {
-      saveData("urls", url, () => {
-        isDataSaved("urls", url, (result) => {
+      let domain = extractURL(url);
+      saveData("urls", domain, () => {
+        isDataSaved("urls", domain, (result) => {
           console.log("Data saved:", result);
         });
       });
@@ -36,7 +38,7 @@ const UrlForm = ({ onNext }) => {
           setSavedUrls(result.urls || []);
         }
       });
-    }, 500);
+    }, 300);
   };
 
   const removeData = (key, value, keyToCompare = null, callback = null) => {
