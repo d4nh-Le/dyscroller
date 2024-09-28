@@ -25,7 +25,7 @@ export function detect(url, tabId) {
                                     const countdown = result.preferences.doomscrollCountdown;
                                     console.log("Detected doomscrolling website: " + doomscroll_url);
                                     console.log("Countdown starts for: " + countdown + " minutes");
-                                    const countdownMs = 3000;
+                                    const countdownMs = countdown * 60 * 1000;
 
                                     setTimeout(() => {
                                         let alertCount = 0;
