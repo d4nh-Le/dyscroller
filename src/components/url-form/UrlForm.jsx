@@ -1,7 +1,7 @@
 import "./UrlForm.css";
 import React, { useState, useEffect } from "react";
 
-import {isChromeExtension, saveData, isDataSaved, extractURL} from "../../utils";
+import {isChromeExtension, saveData, isDataSaved, extractURL, validateURL} from "../../utils";
 
 const UrlForm = ({ onNext }) => {
   const [url, setUrl] = useState("");
@@ -20,6 +20,11 @@ const UrlForm = ({ onNext }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validateURL(url)) {
+      alert("Invalid URL provided.");
+      return;
+    }
 
     if (isChromeExtension() && url) {
       let domain = extractURL(url);

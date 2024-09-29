@@ -26,6 +26,16 @@ export const saveData = (key, value, callback) => {
   );
 };
 
+export const validateURL = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+    alert("Invalid URL provided.");
+  }
+};
+
 
 export const getData = (key, callback) => {
   chrome.storage.local.get({ [key]: [] }, (result) => {
