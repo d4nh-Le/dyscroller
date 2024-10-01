@@ -17,7 +17,7 @@ const App = () => {
                 if (result.preferences.firstTime) {
                     setCurrentComponentId('username');
                 } else {
-                    setCurrentComponentId('preference');
+                    setCurrentComponentId('tasksList');
                 }
             } else {
                 setCurrentComponentId('username');

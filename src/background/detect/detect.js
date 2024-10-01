@@ -22,7 +22,10 @@ export function detect(url, tabId) {
                         if (chrome && chrome.storage) {
                             chrome.storage.local.get(['preferences'], (result) => {
                                 if (result.preferences) {
+
                                     const countdown = result.preferences.doomscrollCountdown;
+                                    let mode = result.preferences.mode;
+                                    const alertCountLimit = (mode === "easy") ? 10 : (mode === "hard") ? 300 : 10;
                                     console.log("Detected doomscrolling website: " + doomscroll_url);
                                     console.log("Countdown starts for: " + countdown + " minutes");
                                     const countdownMs = countdown * 60 * 1000;
@@ -32,7 +35,7 @@ export function detect(url, tabId) {
                                         const alertInterval = setInterval(() => {
                                             chrome.tabs.sendMessage(tabId, { message: "google_alert" });
                                             alertCount++;
-                                            if (alertCount >= 10) {
+                                            if (alertCount >= alertCountLimit) {
                                                 clearInterval(alertInterval);
                                             }
                                         }, 1000);
