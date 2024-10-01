@@ -15,9 +15,9 @@
     scale: 0.95;
   }
 
-    .preference-form-container .username-container {
+  .preference-form-container .username-container input {
     display: flex;
-    flex-direction: row;
+    width: 85%;
     }
   
   .preference-form-container .logo-container {
@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin: 15px 0 15px 0;
+    margin: 7px 0 7px 0;
   }
   
   .preference-form-container .form-group label {
@@ -81,6 +81,17 @@
     border-radius: 6px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
   }
+
+  .preference-form-container .difficulty-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .preference-form-container .save-button-group {
+    display: flex;
+    flex-direction: row;
+  }
   
   .preference-form-container .form-submit-btn:hover {
     background-color: #313131;
@@ -104,8 +115,6 @@
     text-decoration: underline;
   }
   
-
-
   .preference-form-container .button-group {
     flex-grow: 1;
     margin: auto;
@@ -125,11 +134,18 @@
     transition: all ease 0.2s;
     text-align: center;
     flex-grow: 1;
-    width: 32px;
     flex-basis: 0;
     font-size: 13px;
     margin: 5px;
     box-shadow: 0px 0px 50px -15px #000000;
+  }
+
+  .preference-form-container .username-container .button-group label {
+    width: 32px;
+  }
+
+  .preference-form-container .difficulty-container .button-group label {
+    width: 70px;
   }
   
   .preference-form-container .button-group input[type="radio"]:checked + label {

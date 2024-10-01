@@ -42,11 +42,12 @@ function initializeURL() {
     }
 }
 
-function initializePreferences() {
+export function initializePreferences() {
     const preferences = {
         name: "Default",
         doomscrollCountdown: 5,
-        firstTime: true
+        firstTime: true,
+        mode: "easy"
     };
 
     if (chrome) {
