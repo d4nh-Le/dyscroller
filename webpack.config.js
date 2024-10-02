@@ -28,16 +28,30 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images', 
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/app.html',
       filename: 'app.html',
+      chunks: ['app'],
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'public'},
+        { from: 'public/manifest.json', to: 'manifest.json' },
+        { from: 'assets', to: 'assets' },
       ],
     }),
   ],
