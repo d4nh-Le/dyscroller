@@ -11,6 +11,23 @@ export default function TasksList({ navigateTo }) {
     getData("tasks", (tasksResult) => setTasks(tasksResult));
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        const button = document.querySelector('.username-container .form-submit-btn');
+        if (button) {
+          button.click();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleAddTask = () => {
     if (task.trim() !== "") {
       const newTask = {
@@ -27,6 +44,7 @@ export default function TasksList({ navigateTo }) {
     if (tasks && tasks.length) {
       return (
         <div className='task-container'>
+          <div className='task-scroller'>
           <ul className="custom-ul">
             {tasks.map((task, index) => (
 
@@ -39,6 +57,7 @@ export default function TasksList({ navigateTo }) {
 
             ))}
           </ul>
+          </div>
         </div>
       );
     }

@@ -26,6 +26,17 @@
     font-size: 18px;
 }
 
+.tasklist-form-container .task-scroller {
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.tasklist-form-container .task-scroller::-webkit-scrollbar {
+    display: none; 
+}
+
 .tasklist-form-container .radio-group {
     display: flex;
     flex-direction: row;
