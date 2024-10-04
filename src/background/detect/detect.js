@@ -33,11 +33,23 @@ export function detect(url, tabId) {
                                     setTimeout(() => {
                                         let alertCount = 0;
                                         const alertInterval = setInterval(() => {
-                                            chrome.tabs.sendMessage(tabId, { message: "google_alert" });
-                                            alertCount++;
-                                            if (alertCount >= alertCountLimit) {
-                                                clearInterval(alertInterval);
-                                            }
+                                            chrome.tabs.get(tabId, (tab) => {
+                                                if (chrome.runtime.lastError || !tab) {
+                                                    console.error("Tab does not exist or has been closed.");
+                                                    clearInterval(alertInterval);
+                                                    return;
+                                                }
+                                                try {
+                                                    chrome.tabs.sendMessage(tabId, { message: "google_alert" });
+                                                    alertCount++;
+                                                    if (alertCount >= alertCountLimit) {
+                                                        clearInterval(alertInterval);
+                                                    }
+                                                } catch (e) {
+                                                    console.error(e);
+                                                    clearInterval(alertInterval);
+                                                }
+                                            });
                                         }, 1000);
                                     }, countdownMs);
                                 }
