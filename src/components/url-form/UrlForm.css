@@ -124,7 +124,7 @@
 }
 
 .url-form-form-container .saved-urls-container {
-    max-height: 70px;
+    max-height: 110px;
     overflow: auto;
     border: 1px solid #ccc;
     margin-bottom: -20px;
@@ -136,6 +136,15 @@
     display: flex;
     flex-direction: row;
     padding-left: -10px;
+}
+
+.url-form-form-container .saved-urls-container {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.url-form-form-container .saved-urls-container::-webkit-scrollbar {
+    display: none; 
 }
 
 .url-form-form-container .saved {

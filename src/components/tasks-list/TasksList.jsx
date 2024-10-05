@@ -49,11 +49,14 @@ export default function TasksList({ navigateTo }) {
             {tasks.map((task, index) => (
 
               <li key={"task-" + index} className='task-item'>
+                <div className='task-description'>
                 {task.description}
+                </div>
                 <button className='remove-btn' onClick={() => removeData("tasks", task.description, "description", () => getData("tasks", (tasksResult) => setTasks(tasksResult)))}>
                   Complete
                 </button>
               </li>
+              
 
             ))}
           </ul>

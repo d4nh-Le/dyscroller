@@ -74,14 +74,14 @@ const UrlForm = ({ onNext }) => {
   return (
     <div className="url-form-form-container">
       <div className="logo-container">
-        Enter Doom Scroll URLs
+        Enter Doomscroll URLs
       </div>
 
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="url">URLs</label>
           <div className="url-form-container">
-            <input type="text" name="url" id="url" aria-label="url" value={url} onChange={({ target }) => setUrl(target.value)} placeholder="Enter doom scroll URLs" />
+            <input type="text" name="url" id="url" aria-label="url" value={url} onChange={({ target }) => setUrl(target.value)} placeholder="Enter doomscroll URLs" />
             <button className="form-submit-btn" type="submit">Add</button>
           </div>
         </div>

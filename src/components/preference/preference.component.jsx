@@ -109,7 +109,7 @@ export default function Preference({ onNext }) {
 
 
                 <div className="form-group">
-                    <label htmlFor="username">Editing doom scroll limit (minutes):</label>
+                    <label htmlFor="username">Editing doomscroll limit (minutes):</label>
                     <div className="username-container">
                         <div className="radio-group">
                             <fieldset>

@@ -25,3 +25,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
+/*
+    @description: This function runs the detect function every 30 seconds as long as the browser is open.
+*/
+setInterval(() => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs.length > 0) {
+      const activeTab = tabs[0];
+      if (chrome.runtime.lastError) {
+        console.error('Error:', chrome.runtime.lastError.message);
+      } else {
+        detect(activeTab.url, activeTab.id);
+      }
+    }
+  });
+}, 30000);
