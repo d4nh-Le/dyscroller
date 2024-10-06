@@ -42,6 +42,5 @@ To enter the extension page, put the following URL into the search bar:
 ## Author
 Danh Le
 Nhat Trinh
-Benson Tran
 
 @2024 - Dyscroller
