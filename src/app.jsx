@@ -5,7 +5,6 @@ import UsernameContainer from './containers/username.container.jsx';
 import PreferenceContainer from './containers/preference.container.jsx';
 import UrlForm from './containers/url.container.jsx';
 import TasksList from './containers/tasklist.container.jsx'
-import { DysfunctionalTasksList } from './components/tasks-list';
 
 
 const App = () => {
