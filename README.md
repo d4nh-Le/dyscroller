@@ -3,8 +3,8 @@
 ## Features
 
 - [X] Adding unconventional ways to prevent doom scrolling to the browser via extension.
-- [ ] Adding "easy" and "hard" modes 
-- [ ] Adding various messages for personalities <(")
+- [X] Adding "easy" and "hard" modes 
+- [X] Adding various messages for personalities <(")
 
 ## Tech
 
