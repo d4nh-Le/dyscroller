@@ -6,8 +6,7 @@
     "permissions": [
       "storage",
       "tabs",
-      "webNavigation",
-      "scripting"
+      "activeTab"
     ],
     "action": {
       "default_popup": "app.html",
@@ -26,9 +25,5 @@
             "matches": ["<all_urls>"],
             "js": ["content.js"]
         }
-    ],
-    "host_permissions": [
-      "http://*/*",
-      "https://*/*"
     ]
   }
