@@ -1,20 +1,35 @@
 # Dyscroller
+A chrome extension that help the users focus on their tasks by being  prevent the user from doomscrolling.
 
 ## Features
 
 - [X] Adding unconventional ways to prevent doom scrolling to the browser via extension.
 - [X] Adding "easy" and "hard" modes 
 - [X] Adding various messages for personalities <(")
+- [ ] Adding UI for completed tasks
 
-## Tech
+## Technologies
 
 Dyscroller uses a number of open source projects to work properly:
 
 - ReactJS - HTML enhanced for web apps!
 - NodeJS - handlers for the backend.
-- Webpack - Convert into raw code for browser.
+- Webpack - Convert into raw code for browse- [Dyscroller](#dyscroller)
 
-## Installation
+
+## User Guide
+| Description |
+| --- |
+| [How to add doomscroll URLs?](#how-to-add-doomscroll-urls) | 
+| [How long before it triggers the alert?](#how-long-before-it-triggers-the-alert) | 
+| [What are the differences between "Easy" and "Hard" mode?](#mode) |
+### How to add doomscroll URLs
+
+### How long before it triggers the alert
+
+### Mode
+
+## Local Installation
 
 1. Dyscroller requires [Node.js](https://nodejs.org/) v18.15.0+ to run.
 
