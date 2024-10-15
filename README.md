@@ -61,8 +61,8 @@ The durations before Dyscroller alert messages trigger will based on the user's 
 
 ### Mode
 Dyscroller has two modes:
-**Easy** - Dyscroller will only send reminder messages (approximately 10 alert messages) to remind the users to focus on their tasks before doom-scroll.
-**Hard** - Dyscroller will indefinitely send countless reminder messages and render the users unable to continue with that doom-scroll website, forcing the user to close that doom-scroll website. (Good for those who have low self-control ;) ).
+- **Easy** - Dyscroller will only send reminder messages (approximately 10 alert messages) to remind the users to focus on their tasks before doom-scroll.
+- **Hard** - Dyscroller will indefinitely send countless reminder messages and render the users unable to continue with that doom-scroll website, forcing the user to close that doom-scroll website. (Good for those who have low self-control ;) ).
 ### Suggestions
 For any errors, bugs or features suggestions, feel free to send email to Dyscroller developers at **d4nhle02@gmail.com**.
 
