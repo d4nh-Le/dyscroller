@@ -5,8 +5,7 @@
     "manifest_version": 3,
     "permissions": [
       "storage",
-      "tabs",
-      "activeTab"
+      "tabs"
     ],
     "action": {
       "default_popup": "app.html",
@@ -25,5 +24,9 @@
             "matches": ["<all_urls>"],
             "js": ["content.js"]
         }
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
     ]
   }
