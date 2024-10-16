@@ -7,6 +7,7 @@ A chrome extension that help the users focus on their tasks by being  prevent th
 - [X] Adding "easy" and "hard" modes 
 - [X] Adding various messages for personalities <(")
 - [ ] Adding UI for completed tasks
+- [ ] Adding reminder to add tasks when first opened browser
 
 ## Technologies
 
