@@ -8,6 +8,8 @@ A chrome extension that help the users focus on their tasks by being  prevent th
 - [X] Adding various messages for personalities <(")
 - [ ] Adding UI for completed tasks
 - [ ] Adding reminder to add tasks when first opened browser
+- [ ] Adding data report UI for user to see their doom-scroll stats
+
 
 ## Technologies
 
